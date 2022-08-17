@@ -1,0 +1,73 @@
+@import '../Variable/index';
+
+.wrapper-img {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  border-radius: 8px;
+  gap: 20px 10px;
+  max-height: 360px;
+
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px 10px;
+  }
+
+  .img {
+    padding: 1px;
+    text-align: center;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 10px;
+    position: relative;
+    margin-right: 16px;
+    cursor: pointer;
+    border: 3px solid #ccc;
+    border-radius: 16px;
+    transition: all 0.3s linear;
+    span {
+      text-align: center;
+      line-height: 20px;
+      color: #402f31;
+      transition: all 0.3s linear;
+      font-weight: bold;
+    }
+
+    .start {
+      opacity: 0;
+      transform: translateX(-8%);
+      transition: all 0.3s linear;
+    }
+
+    &.active,
+    &:hover {
+      border: 3px solid $main-color;
+      span {
+        color: $main-color;
+      }
+    }
+    &.active {
+      .start {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border-radius: 14px;
+      box-shadow: 5px 3px 6px rgb(0 0 0 / 40%);
+      cursor: pointer;
+    }
+  }
+}

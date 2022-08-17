@@ -1,0 +1,108 @@
+@import '../Variable/index';
+
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Roboto', san-serif;
+  font-size: 1.8rem;
+  overflow: auto;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  @include mobile {
+    font-size: 1.6rem;
+  }
+  line-height: 1.5rem;
+  text-rendering: optimizeSpeed;
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+  }
+}
+
+.ytp-cued-thumbnail-overlay {
+  .ytp-cued-thumbnail-overlay-image {
+    @include tablet {
+      -webkit-background-size: contain !important;
+      background-size: contain !important;
+    }
+
+    @include mobile {
+      -webkit-background-size: contain !important;
+      background-size: contain !important;
+    }
+  }
+}
+
+// css Layout
+
+.container {
+  max-width: calc(100% - $width-header) !important;
+  @include mobile {
+    max-width: 100% !important;
+  }
+}
+//
+
+// default css
+
+li {
+  list-style: none;
+}
+
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s linear;
+  &:hover {
+    color: unset;
+  }
+}
+input {
+  outline: none;
+  border: none;
+}
+.swiper-slide {
+  width: 24.4% !important;
+
+  @include tablet {
+    width: 49% !important;
+  }
+  @include mobile {
+    width: 49% !important;
+  }
+}
+
+.marquee-container {
+  overflow: hidden !important;
+  display: flex !important;
+}
+
+.marquee {
+  min-width: 200%;
+}

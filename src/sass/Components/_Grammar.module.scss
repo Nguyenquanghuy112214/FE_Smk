@@ -1,0 +1,59 @@
+@import '../Variable/';
+
+.content-left {
+  position: relative;
+  @include flex(center, start, wrap);
+  padding-right: 20px;
+
+  &::after {
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 0;
+    width: 2px;
+    min-height: 100vh;
+    height: 100%;
+    background-color: #ccc;
+    @include mobile {
+      position: absolute;
+      content: '';
+      right: unset;
+      top: unset;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      min-height: unset;
+      height: 2px;
+      background-color: #ccc;
+    }
+  }
+}
+
+.wrapper-button {
+  @include flex(center, center, wrap);
+  margin-top: 30px;
+  width: 100%;
+
+  @include mobile {
+    margin-bottom: 20px;
+  }
+
+  .button {
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-right: 10px;
+    border: 1px solid $main-color;
+    color: $main-color;
+    transition: all 0.3s linear;
+    &.active {
+      background-color: $main-color;
+      color: white;
+    }
+  }
+}
+
+.wrapper-right {
+  @include mobile {
+    margin-top: 20px;
+  }
+}

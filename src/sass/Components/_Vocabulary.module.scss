@@ -1,0 +1,18 @@
+@import '../Variable/index';
+
+.wrapper {
+  background-color: #f1f6fa;
+  padding: 10px;
+  min-height: 100vh;
+  .content {
+    margin-top: 20px;
+    padding: 10px;
+
+    .wrapper-content {
+      @include mobile {
+        @include flex();
+        flex-direction: column;
+      }
+    }
+  }
+}

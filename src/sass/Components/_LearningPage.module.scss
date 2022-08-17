@@ -1,0 +1,341 @@
+@import '../Variable/index';
+
+.wrapper-left {
+  width: 100%;
+  &.active {
+    width: 50%;
+  }
+}
+
+.wrapper-right {
+  @include flex(center, start, nowrap);
+
+  display: none;
+  margin-top: 15px;
+  padding: 0 10px;
+  width: 0;
+  &.active {
+    display: block;
+    width: 50%;
+  }
+  .wrapper-button__right {
+    .button {
+      position: relative;
+      background-color: white;
+      border: none;
+      height: 40px;
+      width: 100px;
+      font-weight: 500;
+      font-size: 2rem;
+      margin-right: 20px;
+
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: 0px;
+        left: 0px;
+        height: 3px;
+        width: 0;
+        background-color: $main-color;
+        opacity: 0;
+        transition: all 0.3s linear;
+      }
+
+      &.active::after,
+      &:hover::after {
+        position: absolute;
+        content: '';
+        bottom: 0px;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        opacity: 1;
+
+        background-color: $main-color;
+      }
+
+      &.active,
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+}
+
+.wrapper {
+  background-color: $sub-color;
+  padding: 10px;
+
+  .wrapper-button {
+    margin-top: 30px;
+    max-height: 90vh;
+    overflow: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      width: 0 !important;
+      display: none;
+    }
+  }
+  .button-select {
+    @include flex(center, space-between, nowrap);
+    background-color: white;
+    padding: 2px;
+    height: 100px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    border: 2px solid transparent;
+
+    cursor: pointer;
+
+    &.active {
+      border: 2px solid $main-color;
+    }
+    &__left {
+      @include flex(center, center, nowrap);
+      img {
+        width: 90px;
+        border-radius: 50%;
+      }
+      .title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+.wrapper-right {
+  .img {
+    @include flex(center, start, wrap);
+
+    img {
+      width: 134px;
+      margin-right: 20px;
+    }
+
+    h4 {
+      font-weight: bold;
+      font-size: 2.2rem;
+    }
+  }
+
+  .content {
+    @include flex(center, center, wrap);
+    flex-direction: column;
+
+    ul {
+      text-align: center;
+      width: 100%;
+      .sm {
+        border: 2px solid #17adb4fc;
+        width: 80%;
+      }
+    }
+
+    .button {
+      border: 2px solid #ccc;
+      height: 60px;
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      background-color: white;
+      font-weight: 500;
+      transition: all 0.3s linear;
+
+      &:hover {
+        border: 2px solid $main-color;
+        color: $main-color;
+      }
+    }
+  }
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.online-lectures {
+  max-height: 278px;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+  }
+}
+
+// Modal Lesson
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  @include flex();
+  transition: all 0.3s linear;
+  opacity: 0;
+  transform: translateY(-110%);
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  .wrap-modal {
+    background-color: #f1f6fa;
+    width: 90vw;
+    height: 90vh;
+    padding: 20px;
+    @include tablet {
+      flex-direction: column;
+    }
+    @include mobile {
+      width: 100vw;
+      height: 100vh;
+    }
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px 1000px rgb(0 0 0 / 30%);
+
+    .header-modal {
+      @include flex(center, space-between, wrap);
+      margin: 8px 0 20px 0;
+
+      .title-modal {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .icon-close {
+        svg {
+          font-size: 2.4rem;
+          font-weight: 500;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .content-modal {
+      @include flex(start, space-around, wrap);
+      @include tablet {
+        flex-direction: column;
+      }
+      @include mobile {
+        flex-direction: column;
+      }
+      height: 100%;
+      width: 100%;
+
+      &__left {
+        box-shadow: 7px 3px 19px rgb(0 0 0 / 20%);
+        width: 100%;
+        height: 92%;
+        flex: 3;
+        margin-right: 60px;
+        border-radius: 8px;
+        overflow: hidden;
+
+        @include mobile {
+          flex: 2;
+        }
+      }
+
+      &__right {
+        flex: 1;
+        position: relative;
+
+        @include tablet {
+          margin-top: 20px;
+        }
+
+        .lesson-modal {
+          background: linear-gradient(to right, #3fa93d 0%, #275454 100%);
+          background-clip: text;
+          color: transparent;
+          font-size: 2.2rem;
+          font-weight: bold;
+          margin-bottom: 14px;
+        }
+
+        .vocabulary-modal {
+          font-size: 2.2rem;
+          font-weight: 500;
+          color: #ff1400;
+          margin-bottom: 14px;
+        }
+
+        .list-vocabulary {
+          p {
+            margin-bottom: 16px;
+            font-size: 1.8rem;
+          }
+
+          @include tablet {
+            height: 150px;
+            overflow: auto;
+            overflow: -moz-scrollbars-none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+              width: 0 !important;
+              display: none;
+            }
+          }
+          @include mobile {
+            height: 200px;
+
+            overflow: auto;
+            overflow: -moz-scrollbars-none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+              width: 0 !important;
+              display: none;
+            }
+          }
+        }
+
+        &::before {
+          position: absolute;
+          content: '';
+          top: 0;
+          left: -45px;
+          height: 100%;
+          min-height: 78vh;
+          width: 4px;
+          background-color: #ccc;
+
+          @include tablet {
+            position: absolute;
+            content: '';
+            top: -10px;
+            left: 0%;
+            height: 4px;
+            min-height: unset;
+            width: calc(100vw - 10vw - 40px);
+            background-color: #ccc;
+          }
+          @include mobile {
+            width: calc(100vw - 10vw);
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrap-newword {
+  @include flex(center, start, nowrap);
+  p {
+    margin-right: 6px;
+  }
+}

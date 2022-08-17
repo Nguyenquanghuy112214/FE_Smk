@@ -1,0 +1,27 @@
+@import '../Variable/index';
+.wrapper {
+  width: 60vw;
+  border-radius: 10px;
+  background-color: white;
+  padding: 14px;
+  box-shadow: 0px 0px 0px 1000px rgb(0 0 0 / 30%);
+
+  @include tablet {
+    width: 80vw;
+  }
+  @include mobile {
+    width: 100%;
+  }
+  .icon-close {
+    @include flex(center, end, nowrap);
+    z-index: 9;
+    cursor: pointer;
+    svg {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.list-class {
+  @include flex(center, flex-start);
+}

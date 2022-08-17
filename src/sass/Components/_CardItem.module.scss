@@ -1,0 +1,69 @@
+@import '../Variable/index';
+
+.wrapper-carditem {
+  @include flex(center, space-between, nowrap);
+
+  position: relative;
+  border-radius: 10px;
+  box-shadow: $box-shadow;
+  margin-top: 20px;
+  padding: 16px;
+  line-height: 20px;
+
+  .title {
+    color: black;
+  }
+  img {
+    width: 60px;
+    height: 54px;
+    object-fit: contain;
+    border-radius: 30%;
+    background-color: white;
+    padding: 6px;
+
+    @include mobile {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+  }
+
+  .button {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+  }
+  p {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 2rem;
+    @include mobile {
+      font-size: 1.6rem;
+    }
+  }
+}
+.white {
+  background-color: white;
+}
+.primary {
+  background-color: $main-color;
+}
+
+.textwhite {
+  color: white;
+}
+
+.clwhite {
+  color: white !important;
+}
+
+.justify {
+  @include flex(center, flex-start, nowrap);
+  p {
+    line-height: 20px;
+
+    @include mobile {
+      line-height: 14px;
+    }
+  }
+}
